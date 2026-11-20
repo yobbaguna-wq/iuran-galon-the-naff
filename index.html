@@ -339,7 +339,18 @@ function generateCombinedPDF() {
   const paidStudents = [...new Map(db.payments.map(x => [x.name.trim().toLowerCase(), x.name.trim()])).values()].sort((a,b) => a.localeCompare(b,'id'));
   const paidRows = paidStudents.map((name, i) => {
     const records = db.payments.filter(x => x.name.trim().toLowerCase() === name.toLowerCase());
-    const periods = [...new Set(records.map(x => x.period || periodLabel(x.start,x.end)))].join(', ');
+    // Gabungkan seluruh transaksi siswa menjadi satu rentang: bulan paling awal hingga paling akhir.
+    const starts = records.map(x => x.start).filter(v => /^\d{4}-\d{2}$/.test(v || ''));
+    const ends = records.map(x => x.end).filter(v => /^\d{4}-\d{2}$/.test(v || ''));
+    let periods;
+    if (starts.length && ends.length) {
+      const firstMonth = starts.reduce((a,b) => a < b ? a : b);
+      const lastMonth = ends.reduce((a,b) => a > b ? a : b);
+      periods = periodLabel(firstMonth, lastMonth);
+    } else {
+      // Fallback untuk data lama yang hanya menyimpan teks periode.
+      periods = [...new Set(records.map(x => x.period || periodLabel(x.start,x.end)))].join(', ');
+    }
     const total = records.reduce((s,x) => s + Number(x.amount || 0), 0);
     return `<tr><td>${i+1}</td><td>${esc(name)}</td><td>${esc(periods)}</td><td class="num">${money(total)}</td></tr>`;
   }).join('') || '<tr><td colspan="4" class="empty">Belum ada siswa yang membayar.</td></tr>';
