@@ -53,7 +53,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:10px 16px 24p
  <h2>💧 Catat iuran galon siswa</h2>
  <form id="paymentForm">
   <div class="grid">
-   <label>Nama siswa<input id="pName" list="memberOptions" placeholder="Pilih atau ketik nama siswa" required><datalist id="memberOptions"></datalist></label>
+   <label>Nama siswa<select id="pName" required><option value="">Pilih nama siswa</option></select></label>
    <label>Tanggal bayar<input id="pDate" type="date" required></label>
    <label>Mulai periode pembayaran<input id="pStart" type="month" required></label>
    <label>Sampai periode pembayaran<input id="pEnd" type="month" required></label>
@@ -160,7 +160,7 @@ function render() {
   $('sExpense').textContent = money(expense);
   $('sBalance').textContent = money(income - expense);
 
-  $('memberOptions').innerHTML = db.members.map(m => `<option value="${esc(m.name)}">`).join('');
+  $('pName').innerHTML = '<option value="">Pilih nama siswa</option>' + db.members.map(m => `<option value="${esc(m.name)}">${esc(m.name)}${m.unit ? ' — ' + esc(m.unit) : ''}</option>`).join('');
   $('memberRows').innerHTML = db.members.map((m, i) =>
     `<tr><td>${esc(m.name)}</td><td>${esc(m.unit || '-')}</td><td><button class="del" onclick="removeMember(${i})">Hapus</button></td></tr>`
   ).join('') || '<tr><td colspan="3" class="empty">Belum ada siswa.</td></tr>';
