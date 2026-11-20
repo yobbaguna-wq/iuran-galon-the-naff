@@ -324,11 +324,6 @@ function generateCombinedPDF() {
   <div class="sign"><div>Mengetahui,<br>Koordinator</div><div>Sidoarjo, ${new Date().toLocaleDateString('id-ID')}<br>Bendahara</div></div></div>
   <script>window.onload=()=>setTimeout(()=>window.print(),500);<\/script>
   
-<script>
-if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
-}
-</script>
 </body></html>`);
   w.document.close();
 }
