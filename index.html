@@ -220,7 +220,7 @@ function render() {
   ).join('') || '<tr><td colspan="3" class="empty">Belum ada siswa.</td></tr>';
 
   $('paymentRows').innerHTML = db.payments.slice().reverse().map(x =>
-    `<tr><td>${esc(x.date)}</td><td>${esc(x.name)}</td><td>${esc(x.period || periodLabel(x.start, x.end))}</td><td class="amount">${money(x.amount)}</td><td><button class="del" onclick="removeRecord('payments','${esc(x.id)}')">Hapus</button></td></tr>`
+    `<tr><td>${esc(formatDateID(x.date))}</td><td>${esc(x.name)}</td><td>${esc(x.period || periodLabel(x.start, x.end))}</td><td class="amount">${money(x.amount)}</td><td><button class="del" onclick="removeRecord('payments','${esc(x.id)}')">Hapus</button></td></tr>`
   ).join('') || '<tr><td colspan="5" class="empty">Belum ada pembayaran.</td></tr>';
 
   $('expenseRows').innerHTML = db.expenses.slice().reverse().map(x =>
@@ -356,10 +356,10 @@ function generateCombinedPDF() {
   }).join('') || '<tr><td colspan="4" class="empty">Belum ada siswa yang membayar.</td></tr>';
 
   const receiptRows = db.payments.slice().sort((a,b) => a.date.localeCompare(b.date)).map((x,i) =>
-    `<tr><td>${i+1}</td><td>${esc(x.date)}</td><td>${esc(x.name)}</td><td>${esc(x.period || periodLabel(x.start,x.end))}</td><td class="num">${money(x.amount)}</td><td>${esc(x.note || '-')}</td></tr>`
+    `<tr><td>${i+1}</td><td>${esc(formatDateID(x.date))}</td><td>${esc(x.name)}</td><td>${esc(x.period || periodLabel(x.start,x.end))}</td><td class="num">${money(x.amount)}</td><td>${esc(x.note || '-')}</td></tr>`
   ).join('') || '<tr><td colspan="6" class="empty">Belum ada penerimaan iuran.</td></tr>';
   const expenseRows = db.expenses.slice().sort((a,b) => a.date.localeCompare(b.date)).map((x,i) =>
-    `<tr><td>${i+1}</td><td>${esc(x.date)}</td><td>${esc(x.item)}</td><td>${esc(x.type)}</td><td class="num">${money(x.amount)}</td><td>${esc(x.note || '-')}</td></tr>`
+    `<tr><td>${i+1}</td><td>${esc(formatDateID(x.date))}</td><td>${esc(x.item)}</td><td>${esc(x.type)}</td><td class="num">${money(x.amount)}</td><td>${esc(x.note || '-')}</td></tr>`
   ).join('') || '<tr><td colspan="6" class="empty">Belum ada pengeluaran.</td></tr>';
 
   const w = window.open('', '_blank');
