@@ -32,8 +32,8 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;p
 .tablewrap{overflow-x:auto}.amount{white-space:nowrap;font-weight:650}.del{border:0;background:#fff0f0;color:var(--red);border-radius:7px;padding:6px 8px}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.toolbar button{font-size:13px;color:var(--ink)}.toolbar button.primary{background:var(--green);color:#fff;border-color:var(--green)}
 .empty{text-align:center;color:var(--muted);padding:20px}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:10px 16px 24px}
-@media(max-width:580px){header .school-logo{width:76px;height:76px}header h1{font-size:19px}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.stat strong{font-size:17px}}
+footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;text-align:left;color:var(--muted);font-size:12px;padding:10px 16px 24px}footer>span:first-child{min-width:0}footer .credit{margin:0;text-align:right;white-space:nowrap;font-size:11px;color:var(--muted)}
+@media(max-width:580px){footer{font-size:9px;column-gap:6px;padding-left:10px;padding-right:10px}footer .credit{font-size:9px}header .school-logo{width:76px;height:76px}header h1{font-size:19px}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.stat strong{font-size:17px}}
 @media print{header,nav,.toolbar,.actions,.del,footer{display:none!important}body{background:white}.panel,.stat{box-shadow:none;break-inside:avoid}main{padding:0}.hidden{display:none!important}}
 
 .date-trigger{width:100%;padding:11px;margin-top:5px;border:1px solid #b9dced;border-radius:9px;background:white;color:var(--ink);font:inherit;text-align:left;min-height:46px}
@@ -104,7 +104,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:10px 16px 24p
  <p class="hint">Data tersimpan secara lokal pada browser/perangkat ini. Ekspor cadangan secara berkala agar data tidak hilang jika data browser dihapus atau perangkat berganti.</p>
 </section>
 </main>
-<footer>Aplikasi administrasi iuran galon sekolah · Data tersimpan di perangkat.</footer>
+<footer><span>Aplikasi administrasi iuran galon sekolah · Data tersimpan di perangkat.</span><span class="credit">Design by: yb_wiguna · Versi 11.1</span></footer>
 
 <div class="datepop" id="datePicker" role="dialog" aria-modal="true" aria-label="Pilih tanggal">
  <div class="datebox"><h3 style="margin:0 0 12px">Pilih tanggal</h3>
