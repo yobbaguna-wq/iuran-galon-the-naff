@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f2d500">
+<meta name="theme-color" content="#b9e3ff">
 
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
@@ -14,9 +14,9 @@
 
 <title>Iuran Galon Sekolah</title>
 <style>
-:root{--green:#087eae;--pale:#fffbd6;--ink:#24334a;--muted:#687386;--line:#e7dfaa;--red:#d92d25;--gold:#f4dc00}
-*{box-sizing:border-box}body{margin:0;background:#fffdf0;color:var(--ink);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
-header{background:linear-gradient(120deg,#f5df00,#ffe95b);color:#24334a;padding:18px;border-bottom:6px solid #e52b24;display:flex;align-items:center;gap:16px}header .school-logo{width:104px;height:104px;object-fit:contain;background:white;border-radius:50%;flex:none;border:3px solid #087eae}header .headcopy{min-width:0}header p{color:#26364b;opacity:1}header h1{font-size:22px;margin:0 0 4px}header p{margin:0;opacity:.88;font-size:13px}
+:root{--green:#238fc5;--pale:#eaf6ff;--ink:#203448;--muted:#647789;--line:#cfe5f3;--red:#d92d25;--gold:#8bcdf2}
+*{box-sizing:border-box}body{margin:0;background:#f3f9ff;color:var(--ink);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(120deg,#d9f0ff,#a9dcf8);color:#203448;padding:18px;border-bottom:6px solid #66b9e8;display:flex;align-items:center;gap:16px}header .school-logo{width:104px;height:104px;object-fit:contain;background:white;border-radius:50%;flex:none;border:3px solid #238fc5}header .headcopy{min-width:0}header p{color:#203448;opacity:1}header h1{font-size:22px;margin:0 0 4px}header p{margin:0;opacity:.88;font-size:13px}
 main{max-width:900px;margin:auto;padding:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}
 .stat,.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 2px 8px #173b2a08}
 .stat small{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:19px;margin-top:5px;overflow-wrap:anywhere}
@@ -24,7 +24,7 @@ nav{display:flex;gap:7px;overflow:auto;margin:0 0 14px}nav button{white-space:no
 nav button.active,.primary{background:var(--green);color:white;border-color:var(--green)}
 .panel{margin-bottom:14px}.panel h2{font-size:17px;margin:0 0 12px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-label{font-size:13px;color:var(--muted);display:block}input,select,textarea{width:100%;padding:11px;margin-top:5px;border:1px solid #d8cf83;border-radius:9px;background:white;color:var(--ink);font:inherit}
+label{font-size:13px;color:var(--muted);display:block}input,select,textarea{width:100%;padding:11px;margin-top:5px;border:1px solid #b9dced;border-radius:9px;background:white;color:var(--ink);font:inherit}
 textarea{min-height:70px;resize:vertical}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 button{cursor:pointer;font:inherit}.actions button,.toolbar button{border:1px solid var(--line);background:white;border-radius:9px;padding:10px 13px;font-weight:650}.actions .primary{background:var(--green);color:white}
 .hidden{display:none!important}.hint{color:var(--muted);font-size:12px;margin:8px 0 0}
@@ -36,14 +36,14 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:10px 16px 24p
 @media(max-width:580px){header .school-logo{width:76px;height:76px}header h1{font-size:19px}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.stat strong{font-size:17px}}
 @media print{header,nav,.toolbar,.actions,.del,footer{display:none!important}body{background:white}.panel,.stat{box-shadow:none;break-inside:avoid}main{padding:0}.hidden{display:none!important}}
 
-.date-trigger{width:100%;padding:11px;margin-top:5px;border:1px solid #d8cf83;border-radius:9px;background:white;color:var(--ink);font:inherit;text-align:left;min-height:46px}
+.date-trigger{width:100%;padding:11px;margin-top:5px;border:1px solid #b9dced;border-radius:9px;background:white;color:var(--ink);font:inherit;text-align:left;min-height:46px}
 .date-trigger:after{content:'▾';float:right;color:var(--muted)}
 .datepop{position:fixed;inset:0;background:#14203388;z-index:9999;display:none;align-items:center;justify-content:center;padding:16px}
 .datepop.open{display:flex}.datebox{background:white;width:min(100%,390px);border-radius:16px;padding:16px;box-shadow:0 12px 40px #0003}
 .datehead{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.datehead select{margin:0}
 .dateweek,.datedays{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
 .dateweek span{font-size:12px;color:var(--muted);font-weight:650;padding:5px 0}
-.datedays button{border:0;border-radius:9px;background:#f5f6f8;color:var(--ink);min-height:38px;font:inherit}
+.datedays button{border:0;border-radius:9px;background:#edf7ff;color:var(--ink);min-height:38px;font:inherit}
 .datedays button:disabled{background:transparent;color:#c3c8d0}.datedays button.selected{background:var(--green);color:white;font-weight:700}
 .dateactions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.dateactions button{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 13px;font-weight:650}.dateactions .primary{background:var(--green);color:white;border-color:var(--green)}
 </style>
@@ -368,12 +368,12 @@ function generateCombinedPDF() {
   w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Laporan Kas SD Kreatif The Naff</title>
   <style>
   @page{size:A4;margin:15mm}*{box-sizing:border-box}body{font:11px Arial,sans-serif;color:#202b3a}
-  header{display:flex;align-items:center;gap:14px;border-bottom:3px solid #e6d300;padding-bottom:10px;margin-bottom:14px}
+  header{display:flex;align-items:center;gap:14px;border-bottom:3px solid #66b9e8;padding-bottom:10px;margin-bottom:14px}
   header img{width:76px;height:76px;object-fit:contain}h1{font-size:17px;margin:0 0 4px}h2{font-size:15px;margin:16px 0 8px;color:#087eae}
   p{margin:3px 0}.summary{display:flex;gap:10px;margin:12px 0}.box{border:1px solid #d9d9d9;padding:8px;flex:1}
   .box b{display:block;font-size:13px;margin-top:4px}.num{text-align:right;white-space:nowrap}
   table{width:100%;border-collapse:collapse;margin:6px 0 14px}th,td{border:1px solid #cbd2d9;padding:6px;text-align:left;vertical-align:top}
-  th{background:#fff6a8}tfoot td{font-weight:bold;background:#f5f7f8}.section2{page-break-before:always}
+  th{background:#dff1ff}tfoot td{font-weight:bold;background:#edf7ff}.section2{page-break-before:always}
   .sign{margin-top:35px;display:flex;justify-content:space-between;text-align:center}.sign div{width:40%}
   .muted{color:#667085}.empty{text-align:center;padding:12px}
   </style></head><body>
